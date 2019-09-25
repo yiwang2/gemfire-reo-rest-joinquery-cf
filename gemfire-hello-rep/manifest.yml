@@ -1,0 +1,8 @@
+applications:
+- name: spring-boot-for-gemfire-hello-samples
+  path: target/gemfire-hello-rep-0.0.1-SNAPSHOT.jar
+  health-check-type: none
+  buildpacks:
+    - java_buildpack_offline
+  services:
+    - pcc_service
