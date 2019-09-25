@@ -19,3 +19,4 @@ connect --url=https://cloudcache-156c08e8-a4d4-4388-b5c8-d90634ac3d0d.run.pcfone
 6. build and cf push application from gemfire-hello-rep module
 7. by using rest api client to add some data and run get your_pivotal_app_route/books/low_quantity to have the result
 sample data can be used at data_json.txt
+8. Don't forget to colocated 2 partitioned regions after creation
