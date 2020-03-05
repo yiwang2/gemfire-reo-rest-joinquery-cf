@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import io.pivotal.bookshop.domain.BookMaster;
 import io.pivotal.repositories.BookMasterRepository;
 import io.pivotal.repositories.ExtendedBookMasterRepositories;
+import io.pivotal.repositories.GemfireTemplateBookMasterDao;
 
   
 
@@ -26,6 +27,8 @@ public class BookMasterController {
 	private BookMasterRepository bookMasterRepository;
 	@Autowired
 	private ExtendedBookMasterRepositories extendedBookMasterRepository;
+	@Autowired
+	private GemfireTemplateBookMasterDao gemfireTemplateBookMasterDao;
 	
 
 	@RequestMapping(value = "/books", method = RequestMethod.GET)
@@ -60,8 +63,9 @@ public class BookMasterController {
 	public BookMaster getBookById(@PathVariable Integer item_number) {
 		
 
-		Optional<BookMaster> bookMasterOptional =  bookMasterRepository.findById(item_number);
-		return bookMasterOptional.get();
+		//Optional<BookMaster> bookMasterOptional =  bookMasterRepository.findById(item_number);
+		//return bookMasterOptional.get();
+		return this.gemfireTemplateBookMasterDao.get(item_number);
 		
 	}
 	
